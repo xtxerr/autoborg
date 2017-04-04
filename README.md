@@ -7,7 +7,7 @@ running VMs on LOCALHOST itself and backups those as well.
 #### ALL VMS NEED TO HAVE THEIR DISKS FROM LVM-BASED VOLUMES
 eg. /dev/myvolumegroup/host_jimmy
 
-Each VM is snapshotted and the filesystem is freezed for a short moment (1-5s)
+Each VM is snapshotted and the filesystem is freezed for a short moment (1-5s).
 Then the VM is backuped, while only the chunks/blocks which differ from the last
 backup are stored. The backups are stored as a complete VM disk file inside of
 a borg-based repository. Between different backups only the chunks/blocks which
