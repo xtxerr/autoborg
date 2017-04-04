@@ -15,4 +15,3 @@ have changed are backuped, so that a complete backup of a 100G host-volume can
 lead to just few MegaBytes beeing backuped.
  
 More details about borg on the borg website: http://borgbackup.readthedocs.io/
-#### This script needs to be run by cron
