@@ -46,8 +46,8 @@ SIZE=50G
 # backup partition / mount point
 DISK=/mnt/backup
 #
-# disk space in percent which should be free on the backup disk
-SPACE=10
+# disk space usage on $DISK which is allowed. If its hitting this threshold backup won't run.
+ALLOWED=80
 #
 ### END INIT ###
 
@@ -69,7 +69,7 @@ START=$(date +%s.%N)
 
 # check for enough disk space and exit if it's below $SPACE
 USED=$(df ${DISK} | awk '{print $5}' | sed -ne 2p | cut -d"%" -f1)
-if [[ ${SPACE} -gt ${USED} ]]; then
+if [[ ${USED} -gt ${ALLOWED} ]]; then
 	echo "${USED}% of disk space on backup disk ${DISK} used, but you want to have" \
 		 "${SPACE}% to be free, FATAL!!! Not backuping anything."
 	exit 1
