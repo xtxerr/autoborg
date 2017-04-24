@@ -1,4 +1,9 @@
-# Borgbackup automation of LVM-based virtual-machines
+# Backup automation of LVM-based virtual-machines
+
+- uses filesystem snapshots on guests
+- does deduplication, which will only save the differing blocks of a VM disk
+- will backup also remote hypervisors
+
 
 Connects to REMOTE_HOSTS via SSH pubkey authentication (root user), 
 checks for running VMs and backup those to the local REPO. Also checks for
