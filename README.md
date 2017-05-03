@@ -1,4 +1,4 @@
-# Backup automation of LVM-based virtual-machines
+# Backup automation of LVM-based virtual-machines based on borgbackup
 
 - uses filesystem snapshots on guests
 - does deduplication, which will only save the differing blocks of a VM disk
@@ -18,7 +18,8 @@ backup are stored. The backups are stored as a complete VM disk file inside of
 a borg-based repository. Between different backups only the chunks/blocks which
 have changed are backuped, so that a complete backup of a 100G host-volume can
 lead to just few MegaBytes beeing backuped.
- 
+
+Prerequisite is borgbackup.
 More details about borg on the borg website: http://borgbackup.readthedocs.io/
 
 
