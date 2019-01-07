@@ -5,9 +5,8 @@
 # Borgbackup automation of LVM-based virtual-machines
 #
 # This script needs to be run by cron
-# Connects to REMOTE_HOSTS via SSH pubkey authentication (root user), 
-# checks for running VMs and backup those to the local REPO. Also checks for
-# running VMs on LOCALHOST itself and backup those as well.
+# Connects to REMOTE_HOSTS via SSH pubkey authentication, 
+# checks for running VMs and backup those to the local REPO. 
 #
 # *** ALL VMS NEED TO HAVE THEIR DISKS FROM LVM-BASED VOLUMES ***
 #     eg. /dev/myvolumegroup/host_jimmy
