@@ -1,25 +1,27 @@
 #!/bin/bash
+# Copyright (C) 2016 Christian Meutes <christian.meutes@errxtx.net>
 #
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
 #
-################################################################################
-# Borgbackup automation of LVM-based virtual-machines
+# 1. Redistributions of source code must retain the above copyright notice,
+# this list of conditions and the following disclaimer.
 #
-# This script needs to be run by cron
-# Connects to REMOTE_HOSTS via SSH pubkey authentication, 
-# checks for running VMs and backup those to the local REPO. 
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+# this list of conditions and the following disclaimer in the documentation
+# and/or other materials provided with the distribution.
 #
-# *** ALL VMS NEED TO HAVE THEIR DISKS FROM LVM-BASED VOLUMES ***
-#     eg. /dev/myvolumegroup/host_jimmy
-#
-# Each VM is snapshotted and the filesystem is freezed for a short moment (1-5s)
-# Then the VM is backuped, while only the chunks/blocks which differ from the last
-# backup are stored. The backups are stored as a complete VM disk file inside of
-# a borg-based repository. Between different backups only the chunks/blocks which
-# have changed are backuped, so that a complete backup of a 100G host-volume can
-# lead to just few MegaBytes beeing backuped.
-# 
-# More details about borg on the borg website: http://borgbackup.readthedocs.io/
-################################################################################
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
 #
 ### BEGIN INIT ###
 #
